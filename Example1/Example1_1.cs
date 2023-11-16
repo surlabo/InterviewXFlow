@@ -18,8 +18,8 @@ class Program
     private const int NewPayerHealth = 100;
     private const int Damage = 10;
 
-    private Player player;
-    
+    protected static Player player;
+
     public static void Main(string[] args)
     {
         // Создаем нового игрока.

@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class CheatElementBehaviour : MonoBehaviour
+{
+    [SerializeField] private Text _text;
+    [SerializeField] private Button _button;
+
+    public void Setup(CheatActionDescription description)
+    {
+        _text.text = description.name;
+        _button.onClick.AddListener(() => description.cheatAction());
+    }
+}
+
 public class CheatManager
 {
     public class CheatActionDescription
@@ -14,18 +26,6 @@ public class CheatManager
         {
             this.name = name;
             this.cheatAction = cheatAction;
-        }
-    }
-
-    public class CheatElementBehaviour : MonoBehaviour
-    {
-        [SerializeField] private Text _text;
-        [SerializeField] private Button _button;
-
-        public void Setup(CheatActionDescription description)
-        {
-            _text.text = description.name;
-            _button.onClick.AddListener(() => description.cheatAction());
         }
     }
 

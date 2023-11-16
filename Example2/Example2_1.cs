@@ -8,7 +8,7 @@ public class ExtPlayer : Player
 class ExtProgram : Program
 {
 	// Виджет, отображающий игроку здоровье.
-	private TextView healthView;
+	private static TextView healthView = new TextView();
 
 	public static void ExtMain(string[] args)
 	{
@@ -22,7 +22,7 @@ class ExtProgram : Program
 		HitPlayer();
 	}
 
-	private void OnPlayerHealthChanged(int oldHealth, int newHealth)
+	private static void OnPlayerHealthChanged(int oldHealth, int newHealth)
 	{
 		healthView.Text = newHealth.ToString();
 		if (newHealth - oldHealth < -10) {

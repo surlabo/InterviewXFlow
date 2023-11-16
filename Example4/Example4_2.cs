@@ -2,20 +2,20 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class CommonCheat : MonoBehaviour
+{
+    [SerializeField] private Text _text;
+    [SerializeField] private Button _button;
+
+    public void Setup(string name, Action cheatAction)
+    {
+        _text.text = name;
+        _button.onClick.AddListener(() => cheatAction());
+    }
+}
+
 public class CheatManager
 {
-    public class CommonCheat : MonoBehaviour
-    {
-        [SerializeField] private Text _text;
-        [SerializeField] private Button _button;
-
-        public void Setup(string name, Action cheatAction)
-        {
-            _text.text = name;
-            _button.onClick.AddListener(() => cheatAction());
-        }
-    }
-
     public static readonly CheatManager Instance = new CheatManager();
 
     private GameObject _panel;

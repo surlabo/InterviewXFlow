@@ -1,6 +1,7 @@
 public class ExtPlayer : Player
 {
-	private event Action innerChanged;
+	private Action innerChanged;
+
 	public event Action Changed {
 		add {
 			innerChanged += value;
@@ -15,9 +16,9 @@ public class ExtPlayer : Player
 class ExtProgram : Program
 {
 	// Виджет, отображающий игроку здоровье.
-	private TextView healthView;
+	private static TextView healthView = new TextView();
 
-	private int? previousHealth;
+	private static int? previousHealth;
 
 	public static void ExtMain(string[] args)
 	{
@@ -30,7 +31,7 @@ class ExtProgram : Program
 		HitPlayer();
 	}
 
-	private void OnPlayerChanged()
+	private static void OnPlayerChanged()
 	{
 		healthView.Text = player.Health.ToString();
 		if (previousHealth != null && player.Health - previousHealth < -10) {

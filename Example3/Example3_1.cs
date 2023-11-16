@@ -2,6 +2,7 @@ public class Player
 {
 	private List<Vector2> activeWalkPath = null;
 	private bool isMoving;
+	private Vector2 currentPosition;
 	private Player currentEnemy;
 
 	public void Update()
