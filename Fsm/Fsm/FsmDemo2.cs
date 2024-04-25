@@ -52,6 +52,11 @@ namespace Fsm
             _forceState2Required = false;
         }
 
+        public void Update()
+        {
+            UpdateState();
+        }
+
         private bool Condition1()
         {
             return false;
