@@ -21,7 +21,7 @@ namespace Complexity
                 {
                     if (j != i && list[j] == list[i])
                     {
-                        list.Remove(j);
+                        list.RemoveAt(j);
                         j--;
                     }
                 }
